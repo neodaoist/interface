@@ -41,6 +41,7 @@
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.31",
     "mime-types": "^2.1.35",
+    "mixpanel-browser": "^2.45.0",
     "motion": "^10.7.0",
     "multiformats": "^9.6.4",
     "next": "^12.1.4",

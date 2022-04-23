@@ -20,6 +20,7 @@ import {
   domain
 } from "@components/common/Head"
 import { animate } from "motion"
+import mixpanel from 'mixpanel-browser'
 
 const Home = () => {
   useEffect(() => {
@@ -36,6 +37,9 @@ const Home = () => {
       }
     )
   }, [])
+
+  mixpanel.init(process.env.MIXPANEL_DEV_ENV_TOKEN, {debug: true}); 
+  mixpanel.track('View Homepage');
 
   return (
     <>

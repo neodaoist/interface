@@ -15,12 +15,16 @@ import {
   defaultTitle,
   domain
 } from "@components/common/Head"
+import mixpanel from 'mixpanel-browser'
 
 export default function Slice() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [logs, setLogs] = useState<LogDescription[]>()
   const eventLog = getLog(logs, "TokenSliced")
+
+  mixpanel.init(process.env.MIXPANEL_DEV_ENV_TOKEN, {debug: true}); 
+  mixpanel.track('View Create Store');
 
   return (
     <Container page={true}>

@@ -8,6 +8,7 @@ import {
   domain
 } from "@components/common/Head"
 import fetcher from "@utils/fetcher"
+import mixpanel from 'mixpanel-browser'
 
 export type SlicerReduced = {
   id: number
@@ -21,6 +22,9 @@ export type SlicerReduced = {
 const SlicerGrid = ({
   data
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  mixpanel.init(process.env.MIXPANEL_DEV_ENV_TOKEN, {debug: true}); 
+  mixpanel.track('View Explore Stores');
+
   return (
     <Container page={true}>
       <NextSeo
